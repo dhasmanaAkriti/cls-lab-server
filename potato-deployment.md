@@ -9,6 +9,8 @@ This guide covers deploying a [Potato](https://github.com/davidjurgens/potato) a
 
 ## Step 0: Pull the [Potato](https://github.com/davidjurgens/potato) repo
 
+TODO: add note that I usually move changes back and forth with git
+
 ---
 
 ## Step 1: Set up your task directory
@@ -127,7 +129,11 @@ User services stop running when you log out unless lingering is enabled. Check:
 loginctl show-user <YOUR_USERNAME> | grep Linger
 ```
 
-You want `Linger=yes`.
+You want `Linger=yes`. If it's not:
+
+```bash
+loginctl enable-linger $USER
+```
 
 ---
 
@@ -149,7 +155,7 @@ journalctl --user -u potato-<APP_PREFIX> -n 50 --no-pager
 
 ## Step 7: Add the nginx location block
 
-The nginx .config is located in the /etc/nginx/conf.d directory in the antoniak-lab.conf file. Add this inside the existing `server { }` block in the nginx config file:
+The nginx .config is located in the /etc/nginx/conf.d directory in the cls-lab.conf file. Add this inside the existing `server { }` block in the nginx config file:
 
 ```nginx
 location = /<APP_PREFIX> {

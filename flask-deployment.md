@@ -97,7 +97,7 @@ journalctl --user -u <APP_NAME> -n 50 --no-pager
 
 ## Step 5: Add the nginx location block
 
-nginx is already running on the server. Add a location block for your app inside the existing `server { }` block in the nginx config file. The nginx .config is located in the /etc/nginx/conf.d directory in the antoniak-lab.conf file.
+nginx is already running on the server. Add a location block for your app inside the existing `server { }` block in the nginx config file. The nginx .config is located in the /etc/nginx/conf.d directory in the cls-lab.conf file.
 
 ```nginx
 location = /<YOUR_USERNAME>/<APP_NAME> {
@@ -126,5 +126,5 @@ Always run `nginx -t` first. It's a dry run that catches config errors before yo
 Your app will be live at:
 
 ```
-http://antoniak-lab.colorado.edu/<YOUR_USERNAME>/<APP_NAME>/
+http://cls-lab.colorado.edu/<YOUR_USERNAME>/<APP_NAME>/
 ```

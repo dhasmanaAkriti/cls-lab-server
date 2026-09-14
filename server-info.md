@@ -6,10 +6,10 @@
 > This server provides a shared hosting environment for members of the Culture, Language, & Systems Lab to deploy annotation tools, demos, and other applications that can be accessed from anywhere (not just by CU-affiliates).
 
 **Who maintains it:**
-> Advait and Teagan primarily, but anyone in the Culture, Language, & Systems Lab can help. Also reach out to the CS computing resources team (cscihelp@colorado.edu), they've been helpful in setting up the server.
+> Anyone in the Culture, Language, & Systems Lab can help. Also reach out to the CS computing resources team (cscihelp@colorado.edu), they've been helpful in setting up the server.
 
 **How to get access:**
-> The best way to gain access is to email the [CS computing resources team](https://www.colorado.edu/cs/students/computing-resources-students) (cscihelp@colorado.edu). Jinyoung Park was the IT employee that originally set up the lab server, but there are others in OIT that can grant you access. Originally the server name was antoniak-lab, but we're in the process of changing the name to cls-lb.
+> The best way to gain access is to email the [CS computing resources team](https://www.colorado.edu/cs/students/computing-resources-students) (cscihelp@colorado.edu). Jinyoung Park was the IT employee that originally set up the lab server, but there are others in OIT that can grant you access. Originally the server name was antoniak-lab, but we've changed to cls-lab. There may be some artifacts that reference antoniak-lab; please update if you see any!
 
 ---
 
@@ -29,13 +29,13 @@ Considerations:
 **SSH:**
 
 ```bash
-ssh <YOUR_USERNAME>@antoniak-lab.colorado.edu
+ssh <YOUR_USERNAME>@cls-lab.colorado.edu
 ```
 
 **Web:** Applications are served at:
 
 ```
-http://antoniak-lab.colorado.edu/<YOUR_USERNAME>/<APP_NAME>/
+http://cls-lab.colorado.edu/<YOUR_USERNAME>/<APP_NAME>/
 ```
 
 **VPN:**
