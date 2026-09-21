@@ -10,7 +10,11 @@ This guide covers deploying a [Potato](https://github.com/davidjurgens/potato) a
 ## Step 0: Pull the [Potato](https://github.com/davidjurgens/potato) repo
 
 TODO: add note that I usually move changes back and forth with git
-
+```
+cd potato && pip install -r requirements.txt
+pip install potato-annotation==2.4 
+```
+Currently, all our services use the 2.4 version.
 ---
 
 ## Step 1: Set up your task directory
@@ -111,6 +115,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=/home/<YOUR_USERNAME>/potato/examples/<TASK_TYPE>/<TASK_DIR>
+Environment=POTATO_URL_PREFIX=/<YOUR_USERNAME>/<APP_PREFIX>
 ExecStart=/home/<YOUR_USERNAME>/miniconda3/envs/<POTATO_ENV>/bin/python -m potato interface config.yaml
 Restart=always
 RestartSec=3
@@ -158,17 +163,17 @@ journalctl --user -u potato-<APP_PREFIX> -n 50 --no-pager
 The nginx .config is located in the /etc/nginx/conf.d directory in the cls-lab.conf file. Add this inside the existing `server { }` block in the nginx config file:
 
 ```nginx
-location = /<APP_PREFIX> {
+location = /<YOUR_USERNAME>/<APP_PREFIX> {
     return 301 /<APP_PREFIX>/;
 }
 
-location /<APP_PREFIX>/ {
+location /<YOUR_USERNAME>/<APP_PREFIX>/ {
     proxy_pass http://127.0.0.1:<PORT>;
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
-    proxy_set_header X-Forwarded-Prefix /<APP_PREFIX>;
+    proxy_set_header X-Forwarded-Prefix /<YOUR_USERNAME>/<APP_PREFIX>;
 }
 ```
 
@@ -181,5 +186,5 @@ sudo nginx -t && sudo systemctl reload nginx
 Test:
 
 ```bash
-curl -I http://<SERVER_HOSTNAME>/<APP_PREFIX>/
+curl -I http://<SERVER_HOSTNAME>/<USERNAME>/<APP_PREFIX>/
 ```
