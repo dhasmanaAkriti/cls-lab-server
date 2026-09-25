@@ -12,9 +12,8 @@ This guide covers deploying a [Potato](https://github.com/davidjurgens/potato) a
 TODO: add note that I usually move changes back and forth with git
 ```
 cd potato && pip install -r requirements.txt
-pip install potato-annotation==2.4 
+pip install potato-annotation==2.9
 ```
-Currently, all our services use the 2.4 version.
 ---
 
 ## Step 1: Set up your task directory
